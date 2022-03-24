@@ -19,8 +19,6 @@ jobs:
     - name: Set up french locale
       run: |
         sudo apt install language-pack-fr
-        sudo locale-gen
-        sudo update-locale LANG="fr_FR.UTF-8" LC_ALL="fr_FR.UTF-8"
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
