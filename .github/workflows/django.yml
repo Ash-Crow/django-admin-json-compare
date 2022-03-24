@@ -21,8 +21,9 @@ jobs:
       run: |
         date
         ls
-    - name: Set up French locale with incorrect package
+    - name: Trying with incorrect package
       run: |
+        ls
         sudo apt install language-pack-fr-2
     - name: Set up French locale
       run: |
