@@ -13,12 +13,23 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9, '3.10']
 
     steps:
-    - name: Set up french locale
+    - name: Test effing thing 🧪
+      run: |
+        date
+        ls
+    - name: Set up French locale without sudo
+      run: |
+        apt install language-pack-fr
+        locale-gen
+        update-locale LANG="fr_FR.UTF-8" LC_ALL="fr_FR.UTF-8"
+    - name: Set up French locale
       run: |
         sudo apt install language-pack-fr
+        sudo locale-gen
+        sudo update-locale LANG="fr_FR.UTF-8" LC_ALL="fr_FR.UTF-8"
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
